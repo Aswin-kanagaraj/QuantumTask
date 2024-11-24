@@ -1,0 +1,51 @@
+.dashboard-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #f3f6ff;
+    /* light blue background */
+}
+
+.attendance-statistics {
+    flex: 2;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.attendance-header span {
+    margin-right: 1rem;
+    font-size: 16px;
+    font-weight: bold;
+    color: #48afec;
+    /* Highlight for "Daily" */
+}
+
+.attendance-header span.inactive {
+    color: #c8cad5;
+}
+
+.chart-container {
+    margin-top: 1rem;
+    height: 300px;
+}
+
+.weekly-attendance {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bar-chart-container {
+    height: 300px;
+    margin-top: 1rem;
+}
