@@ -17,7 +17,7 @@ exports.register = async (req, res) => {
 
   try {
     const { name, email, contactNo, surname, address, designation, password } = req.body;
-    console.log(password, email, contactNo,)
+    // console.log(password, email, contactNo,)
     const user = new User({ name, email, contactNo, surname, address, designation, password });
     await user.save();
     res.status(200).json({
