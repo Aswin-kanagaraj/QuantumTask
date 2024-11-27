@@ -87,6 +87,7 @@ useEffect(()=>{
           ))}
         </tbody>
       </table>
+      <h4>Total Employee's</h4>
       <table className="attendance-table">
         <thead>
           <tr>
