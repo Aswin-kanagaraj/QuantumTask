@@ -36,14 +36,17 @@ const EmployeeTable2 = () => {
     },
   ];
   const { designation } = JSON.parse(localStorage.getItem("user"))
-const [user,setUser]= useState()
+const [user,setUser]= useState([])
   const getData = async()=>{
     const data = await axios.get(`${HOST}/quantum/getuser`);
     setUser(data.data)
+    console.log('-------',user)
+    
   }
 useEffect(()=>{
-  getData()
-},[])
+  getData();
+},[designation])
+
   return (
     <div className="attendance-container">
       <div className="header">
@@ -100,7 +103,7 @@ useEffect(()=>{
           </tr>
         </thead>
         <tbody>
-          {user.map((entry, index) => (
+          {user.length !==0 ? user.map((entry, index) => (
             <tr key={index}>
 
               <td>
@@ -117,7 +120,7 @@ useEffect(()=>{
               <td>{entry.address}</td>
               <td>{entry.contactNo}</td>
             </tr>
-          ))}
+          )):null}
         </tbody>
       </table>
     </div>
