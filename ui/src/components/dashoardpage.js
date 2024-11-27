@@ -20,9 +20,17 @@ import AttendanceLogchild2 from "./attendancelogChild/attendancelogChild2";
 import Reportchild1 from "./reportChild/reportChild1";
 import Reportchild2 from "./reportChild/reportChils2";
 import UserProfileForm from "./setingschild/setingsChild";
+import { RiLogoutCircleLine } from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 export const Dashboardpage = () => {
   const [isSidebarVisible, setSidebarVisible] = useState(true);
   const [activeItem, setActiveItem] = useState("dashboard");
+  const navigate = useNavigate()
+  const logout = ()=>{
+    localStorage.clear();
+    navigate('/')
+  }
+  const {name} = JSON.parse(localStorage.getItem("user"))
   return (
     <div>
       <nav
@@ -78,7 +86,8 @@ export const Dashboardpage = () => {
                 marginRight: "10px",
               }}
             />
-            <h5 style={{ margin: "0" }}>Hello, Admin</h5>
+            <h5 style={{ margin: "0" }}>Hello, {name}</h5>
+            <RiLogoutCircleLine style={{fontSize:'25px', marginLeft:'20px'}} onClick={()=>{logout()}}/>
           </div>
         </div>
       </nav>
@@ -89,7 +98,7 @@ export const Dashboardpage = () => {
             width: isSidebarVisible ? "250px" : "0",
             backgroundColor: "#092d43",
             borderRight: isSidebarVisible ? "1px solid #ddd" : "none",
-            overflow: "hidden", 
+            overflow: "hidden",
             transition: "width 0.3s ease",
             minHeight: "100vh",
             color: 'white'
@@ -103,11 +112,11 @@ export const Dashboardpage = () => {
               <li id='reports' onClick={() => setActiveItem('reports')} style={{ padding: "10px", cursor: "pointer", fontSize: '23px', backgroundColor: activeItem === 'reports' ? "#20bead" : "transparent", borderRadius: "5px" }}><span><BsFileEarmarkPerson /></span><span style={{ marginLeft: '17px' }}>Reports</span></li>
               <li id='settings' onClick={() => setActiveItem('settings')} style={{ padding: "10px", cursor: "pointer", fontSize: '23px', backgroundColor: activeItem === 'settings' ? "#20bead" : "transparent", borderRadius: "5px" }}><span><IoSettingsSharp /></span><span style={{ marginLeft: '17px' }}>Settings</span></li>
               <li> <img src={officeImg} alt="logo" style={{
-              width: '220px',
-              position: 'fixed',
-              bottom: '0',
+                width: '220px',
+                position: 'fixed',
+                bottom: '0',
 
-            }} /></li>
+              }} /></li>
             </ul>
           )}
         </div>
